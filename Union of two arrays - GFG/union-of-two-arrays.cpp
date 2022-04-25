@@ -13,12 +13,11 @@ class Solution{
     int doUnion(int a[], int n, int b[], int m)  {
         //code here
         map<int,int>f;
-        int i;
         for(int i=0;i<n;i++){
             f[a[i]]++;
         }
-        for(int j=0;j<m;j++){
-            f[b[j]]++;
+        for(int i=0;i<m;i++){
+            f[b[i]]++;
         }
         return f.size();
         
