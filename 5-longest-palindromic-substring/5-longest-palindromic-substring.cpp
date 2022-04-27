@@ -1,28 +1,28 @@
 class Solution {
 public:
-    string longestPalindrome(string str) {
-        int n=str.length();
-        int maxLength = 1,start=0;
+    string longestPalindrome(string s) {
+        int n=s.length();
+        int maxlen = 1,start=0;
         int low, high;
         for (int i = 0; i < n; i++) {
             low = i - 1;
             high = i + 1;
-            while ( high < n && str[high] == str[i]) //increment 'high'                                  
+            while ( high < n && s[high] == s[i])                                   
                 high++;
 
-            while ( low >= 0 && str[low] == str[i]) // decrement 'low'                   
+            while ( low >= 0 && s[low] == s[i])                 
                 low--;
 
-            while (low >= 0 && high < n && str[low] == str[high]){
+            while (low >= 0 && high < n && s[low] == s[high]){
                   low--;
                 high++;
         }
         int length = high - low - 1;
-        if (maxLength < length) {
-            maxLength = length;
+        if (maxlen < length) {
+            maxlen = length;
               start=low+1;
         }
     }
-        return str.substr(start, maxLength);
+        return s.substr(start, maxlen);
     }
 };
